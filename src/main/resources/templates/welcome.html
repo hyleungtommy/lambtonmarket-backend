@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+	<script>
+	
+	setInterval(()=>{
+		$.get( "http://localhost:8080/currentcount", function( results ) {
+			console.log(results)
+			$("#pageCount").html(results);
+		});
+	},3000)
+	
+
+	</script>
+</head>
+<body>
+	<h2> Welcome to Tommy's website </h2>
+	Page Count:<span id="pageCount" th:text="${pageCount}"></span>
+	<a th:href="@{/createpost}">Add Goods</a>
+	<a th:href="@{/allposts}">View Goods</a>
+</body>
+</html>
